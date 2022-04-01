@@ -1,0 +1,17 @@
+// если вы хотите использовать sass-переменные - удалите root
+// colors
+:root {
+    // base
+    --font-family: "Roboto", Arial, Helvetica, sans-serif;
+    --content-width: 1170px;
+    --container-offset: 15px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+    --header-top-height: 130px;
+
+    // colors
+    --light-color: #fff;
+    --accent-color: #ffcc00;
+    --accent-hover-color: #f7ce2a5f;
+    --text-color: #252525;
+    --accent-text-color: #000000;
+}
