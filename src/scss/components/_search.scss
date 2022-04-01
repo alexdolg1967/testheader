@@ -1,0 +1,21 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 9px 8px 8px;
+    background-color: var(--accent-color);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    cursor: pointer;
+
+    &-icon {
+        width: 19px;
+        height: 19px;
+        transition: transform 0.3s;
+    }
+
+    &:hover &-icon {
+        transform: scale(1.3);
+    }
+}

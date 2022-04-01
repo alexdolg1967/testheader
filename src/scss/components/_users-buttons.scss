@@ -1,0 +1,106 @@
+.users-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 11px;
+
+    @media (min-width: 992px) {
+        flex: 0 0 150px;
+    }
+
+    &__cart,
+    &__favorite,
+    &__balance {
+        position: relative;
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        align-items: center;
+        column-gap: 11px;
+
+        svg {
+            display: block;
+            margin: auto;
+            transition: fill, transform 0.3s;
+        }
+
+        .count {
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            padding: 3px 5px;
+            line-height: 1;
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+
+            @media (min-width: 992px) {
+                position: relative;
+                top: 0;
+                left: 0;
+                padding: 0;
+                text-decoration: underline;
+                border-radius: 0;
+                background-color: transparent;
+            }
+        }
+
+        .text {
+            display: none;
+
+            @media (min-width: 992px) {
+                display: inline;
+            }
+        }
+
+        span {
+            text-align: left;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: -0.025em;
+            text-decoration: underline;
+            color: var(--accent-text-color);
+            transition: color 0.3s;
+        }
+
+        &:hover {
+            & svg {
+                @include for-desktop {
+                    fill: var(--accent-color) !important;
+                }
+
+                @include for-big {
+                    transform: scale(1.5);
+                }
+            }
+
+            span {
+                @include for-desktop {
+                    font-size: 14px;
+                    letter-spacing: -0.01em;
+                    color: var(--accent-color);
+                }
+            }
+        }
+    }
+
+    &__cart {
+        &-icon {
+            width: 19px;
+            height: 18px;
+        }
+    }
+
+    &__favorite {
+        &-icon {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    &__balance {
+        &-icon {
+            width: 18px;
+            height: 16px;
+        }
+    }
+}
