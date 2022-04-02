@@ -1,15 +1,53 @@
 .main-menu {
-    height: 100%;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    height: 0;
+    width: 250px;
     display: flex;
+    background-color: var(--text-color);
+    border-radius: 9px;
+    transition: height 0.4s;
+
+    &.menu--active {
+        height: auto;
+    }
+
+    @include for-desktop {
+        position: relative;
+        top: 0;
+        width: auto;
+        height: 100%;
+        border-radius: 0;
+    }
 
     &__list {
+        width: 100%;
         height: 100%;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 8px;
+        overflow: hidden;
+
+        @include for-desktop {
+            width: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 0;
+        }
     }
 
     &__item {
-        height: 100%;
+        width: 100%;
+        display: flex;
+
+        @include for-desktop {
+            width: auto;
+            height: 100%;
+        }
 
         &.item-active a {
             font-weight: 600;
@@ -20,19 +58,23 @@
 
     &__link {
         display: flex;
+        width: 100%;
         height: 100%;
-        justify-content: center;
         align-items: center;
-        padding: 8px 10px;
+        padding: 10px 12px;
         font-weight: 600;
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 16px;
+        line-height: 18px;
         background-color: var(--text-color);
         border: none;
         color: #fff;
         transition: color, background-color 0.3s;
 
         @include for-desktop {
+            font-size: 14px;
+            line-height: 16px;
+            justify-content: center;
+            width: auto;
             padding: 8px 12px;
         }
 

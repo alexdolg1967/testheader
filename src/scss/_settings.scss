@@ -47,6 +47,9 @@ a {
 
 .site-container {
     overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 .is-hidden {
