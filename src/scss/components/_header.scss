@@ -15,10 +15,10 @@
 
     &-top {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 125px 253px 1fr auto;
         grid-template-rows: auto 1fr;
         column-gap: 15px;
-        row-gap: 22px;
+        row-gap: 10px;
         width: 100%;
         height: var(--header-top-height);
 
@@ -26,21 +26,21 @@
             column-gap: 30px;
         }
 
-        @media (min-width: 1100px) {
-            grid-template-columns: 160px 1fr;
-        }
-
         @include for-big {
-            grid-template-columns: 210px 1fr;
+            grid-template-columns: 210px 253px 1fr auto;
+            row-gap: 22px;
         }
 
         &__logo {
             position: relative;
             grid-row: span 2;
-            align-self: flex-end;
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            @include for-desktop {
+                align-self: flex-end;
+            }
 
             &-wrapper {
                 padding: 10px 8px 6px;
@@ -64,7 +64,7 @@
             &-text {
                 display: none;
 
-                @media (min-width: 992px) {
+                @include for-desktop {
                     display: block;
                     position: absolute;
                     left: 50%;
@@ -88,6 +88,62 @@
 
             &:hover span {
                 color: var(--accent-color);
+            }
+        }
+
+        &__buttons {
+            grid-column: 4;
+            display: flex;
+            column-gap: 14px;
+            padding: 12px 0 8px;
+
+            & .btn {
+                transition: color 0.3s;
+
+                &:first-child {
+                    &:after {
+                        content: "|";
+                        position: relative;
+                        margin-left: 14px;
+                        color: var(--text-color) !important;
+                        cursor: initial;
+                    }
+                }
+
+                &:hover {
+                    color: var(--accent-color);
+                }
+            }
+        }
+
+        &__banner {
+            grid-column: 2;
+            grid-row: 1;
+            width: 253px;
+            height: 70px;
+            background-color: #e2e2e2;
+
+            @include for-desktop {
+                grid-row: 2;
+            }
+        }
+
+        &__carts {
+            grid-column: 2;
+            display: flex;
+            align-items: center;
+            column-gap: 25px;
+
+            @media (min-width: 992px) {
+                column-gap: 10px;
+            }
+
+            @include for-desktop {
+                grid-column: 3;
+            }
+
+            @include for-big {
+                column-gap: 30px;
             }
         }
     }
@@ -122,104 +178,21 @@
         }
     }
 }
-.top {
-    &-header {
-        display: flex;
-
-        &__wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #d7d7d7;
-        }
-
-        &__buttons {
-            display: flex;
-            column-gap: 14px;
-            padding: 12px 0 8px;
-
-            & .btn {
-                transition: color 0.3s;
-
-                &:not(:last-child) {
-                    &:after {
-                        content: "|";
-                        position: relative;
-                        margin-left: 14px;
-                        color: var(--text-color) !important;
-                        cursor: initial;
-                    }
-                }
-
-                &:hover {
-                    color: var(--accent-color);
-                }
-            }
-        }
-    }
-
-    &-menu {
-        padding: 12px 0 8px;
-        &__list {
-            display: flex;
-            align-items: center;
-            column-gap: 22px;
-        }
-
-        &__link {
-            font-size: 12px;
-            line-height: 14px;
-            letter-spacing: -0.01em;
-            color: var(--text-color);
-            transition: color 0.3s;
-            white-space: nowrap;
-
-            &:hover {
-                color: var(--accent-color);
-            }
-        }
-    }
-
-    &-body {
-        display: flex;
-        column-gap: 15px;
-
-        @include for-desktop {
-            column-gap: 20px;
-        }
-
-        @media (min-width: 1100px) {
-            column-gap: 30px;
-        }
-
-        &__banner {
-            width: 253px;
-            height: 70px;
-            background-color: #e2e2e2;
-        }
-
-        &__carts {
-            display: flex;
-            align-items: center;
-            column-gap: 10px;
-
-            @include for-big {
-                column-gap: 30px;
-            }
-        }
-    }
-}
 
 .hits-items {
     display: flex;
     column-gap: 15px;
 
     &__img {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
         border: 1px solid #d9d9d9;
         transition: border-color, transform 0.3s;
+
+        @media (min-width: 992px) {
+            width: 70px;
+            height: 70px;
+        }
 
         &:hover {
             border: 1px solid var(--accent-color);

@@ -1,3 +1,21 @@
 .burger {
     @include burger;
+    display: block;
+    margin: auto 0 auto 2rem;
+    z-index: 22;
+
+    @include for-desktop {
+        display: none;
+    }
+}
+
+.catalog-burger {
+    @include burger;
+    display: block;
+    margin: auto;
+    z-index: 22;
+
+    @include for-desktop {
+        display: none;
+    }
 }

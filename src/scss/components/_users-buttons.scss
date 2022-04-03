@@ -1,11 +1,15 @@
 .users-buttons {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
     gap: 11px;
 
     @media (min-width: 992px) {
         flex: 0 0 150px;
+    }
+
+    @include for-desktop {
+        justify-content: space-between;
+        flex-direction: column;
     }
 
     &__cart,
@@ -60,6 +64,7 @@
             text-decoration: underline;
             color: var(--accent-text-color);
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         &:hover {
