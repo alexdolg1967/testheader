@@ -9,21 +9,37 @@
     }
 
     &-menu {
+        grid-row-start: 2;
         grid-column: span 2;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         top: 0;
         right: -102%;
-        width: 40%;
-        height: 100vh;
+        width: auto;
+        min-height: 100vh;
         z-index: 20;
-        padding: 2rem;
+        padding: 4rem 2rem 2rem;
         background-color: #fff;
         transition: right 0.4s;
+        overflow-y: auto;
+
+        @include for-small {
+            // width: 50%;
+        }
+
+        @include for-tablet {
+            // width: 40%;
+        }
 
         @include for-desktop {
+            flex-direction: row;
+            grid-row-start: 1;
+            grid-column: 2 / span 2;
             position: relative;
             right: 0;
             width: auto;
+            min-height: 0;
             height: auto;
             padding: 12px 0 8px;
         }
@@ -31,6 +47,7 @@
         &.menu--active {
             right: 0;
             transition: right 0.4s;
+            row-gap: 25px;
         }
 
         &__list {

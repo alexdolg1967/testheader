@@ -1,19 +1,47 @@
 .contacts {
-    grid-column: 4;
+    grid-column: 2 / span 2;
+    grid-row: 3;
     position: relative;
-    width: 133px;
     height: 100%;
-    margin-left: auto;
     display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #d9d9d9;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
     z-index: 3;
 
+    @media (min-width: 345px) {
+        justify-content: center;
+    }
+
+    @include for-small {
+        column-gap: 30px;
+    }
+
+    @media (min-width: 650px) {
+        grid-column: 3;
+        grid-row: 3;
+        position: relative;
+        width: 133px;
+        height: 100%;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    @include for-tablet {
+        grid-column: 3;
+    }
+
     @media (min-width: 992px) {
+        grid-column: 3;
         justify-content: space-between;
     }
 
     @include for-desktop {
+        grid-column: 4;
+        grid-row: 2;
         width: 133px;
     }
 
@@ -36,6 +64,7 @@
         display: none;
 
         @include for-big {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,11 +78,22 @@
     }
 
     &__phone {
-        margin: 5px 0;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 29px;
+        margin: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1;
         letter-spacing: -0.02em;
+        white-space: nowrap;
+
+        @include for-small {
+            margin: 5px 0;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        @media (min-width: 650px) {
+            line-height: 29px;
+        }
 
         @include for-desktop {
             margin: 5px 0;
@@ -65,7 +105,7 @@
         }
 
         @include for-big {
-            margin: 15px 0 14px;
+            margin: 12px 0;
             font-size: 25px;
         }
     }
@@ -73,10 +113,19 @@
     &__bottom {
         position: relative;
         top: 0;
-        width: 100%;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+        justify-content: flex-start;
+        column-gap: 10px;
+
+        @include for-small {
+            column-gap: 15px;
+        }
+
+        @media (min-width: 650px) {
+            width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
 
         @include for-big {
             position: absolute;

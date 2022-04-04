@@ -1,7 +1,21 @@
 .users-buttons {
+    grid-column: 2;
+    grid-row: 2;
+    height: min-content;
+    margin: auto 0 0;
     display: flex;
     flex-direction: row;
-    gap: 11px;
+    gap: 5px;
+
+    @include for-small {
+        gap: 10px;
+    }
+
+    @include for-tablet {
+        grid-column: none;
+        grid-row: none;
+        margin: 0;
+    }
 
     @media (min-width: 992px) {
         flex: 0 0 150px;
@@ -19,7 +33,11 @@
         display: grid;
         grid-template-columns: 20px 1fr;
         align-items: center;
-        column-gap: 11px;
+        column-gap: 20px;
+
+        @media (min-width: 992px) {
+            column-gap: 11px;
+        }
 
         svg {
             display: block;

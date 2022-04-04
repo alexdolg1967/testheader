@@ -1,8 +1,12 @@
 .burger {
     @include burger;
     display: block;
-    margin: auto 0 auto 2rem;
+    margin: auto 0 auto 1rem;
     z-index: 22;
+
+    @include for-tablet {
+        margin: auto 0 auto 2rem;
+    }
 
     @include for-desktop {
         display: none;
@@ -13,7 +17,7 @@
     @include burger;
     display: block;
     margin: auto;
-    z-index: 22;
+    z-index: 2;
 
     @include for-desktop {
         display: none;
