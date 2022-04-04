@@ -3,6 +3,12 @@
     display: flex;
     align-items: center;
     height: 100%;
+    bottom: 0.5px;
+    order: 3;
+
+    @include for-desktop {
+        order: -1;
+    }
 
     &-btn {
         display: flex;
@@ -14,13 +20,10 @@
         border-radius: 6px;
         cursor: pointer;
         order: 2;
-
-        @media (min-width: 650px) {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            border-top-right-radius: 6px;
-            border-bottom-right-radius: 6px;
-        }
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
 
         @include for-desktop {
             order: 1;
@@ -44,27 +47,21 @@
     &-input {
         position: absolute;
         top: 0;
-        left: 0;
+        right: 0;
         width: 0;
         height: 0;
         padding: 5px 10px;
         border: 1px solid var(--accent-color);
         border-radius: 6px;
         outline: none;
+        z-index: 3;
         display: none;
-
-        &.search--open {
-            display: block;
-            top: 104%;
-            width: 270px;
-            height: 34px;
-        }
 
         @media (min-width: 650px) {
             display: flex;
             position: relative;
             width: 270px;
-            height: 98%;
+            height: 100%;
             padding: 5px 10px;
             border: 1px solid var(--accent-color);
             border-left-width: 2px;
@@ -74,6 +71,13 @@
             border-bottom-left-radius: 6px;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+        }
+
+        &.search--open {
+            display: block;
+            top: 104%;
+            width: 270px;
+            height: 34px;
         }
 
         @include for-desktop {

@@ -5,12 +5,27 @@
     height: 0;
     width: 250px;
     display: flex;
+    flex-direction: column;
     background-color: var(--text-color);
     border-radius: 9px;
     transition: height 0.4s;
 
+    @media (min-width: 414px) {
+        flex-direction: row;
+    }
+
+    & .header-bottom__bonus {
+        height: 0;
+        display: none;
+    }
+
     &.menu-catalog-active {
         height: auto;
+
+        & .header-bottom__bonus {
+            display: flex;
+            height: auto;
+        }
     }
 
     @include for-desktop {
